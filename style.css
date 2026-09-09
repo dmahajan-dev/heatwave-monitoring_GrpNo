@@ -1,0 +1,328 @@
+/* Global Styles & Design Variables */
+:root {
+    --primary-color: #d9381e;
+    --accent-orange: #f37021;
+    --accent-yellow: #f8a51d;
+    --bg-light: #fef8f5;
+    --card-bg: #ffffff;
+    --text-dark: #2c2c2c;
+    --text-muted: #666666;
+    --border-color: #e2d7d0;
+    --success-green: #2e7d32;
+    --warning-yellow: #ed6c02;
+    --danger-red: #d32f2f;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header & Navbar */
+.navbar {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    display: table;
+    width: 100%;
+}
+
+.logo {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--accent-orange);
+}
+
+.logo .icon {
+    margin-right: 8px;
+}
+
+nav {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: #dddddd;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--accent-yellow);
+    font-weight: 600;
+}
+
+/* Alert Banner */
+.alert-banner {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 0;
+    font-size: 0.95rem;
+    border-bottom: 3px solid #9e1b07;
+}
+
+.alert-badge {
+    background-color: #ffffff;
+    color: var(--primary-color);
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-right: 10px;
+}
+
+/* Dashboard Cards */
+.dashboard-section {
+    margin: 30px 0;
+}
+
+.section-header {
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+}
+
+.section-header p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.cards-grid {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.card {
+    display: table-cell;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+    margin: 0 10px;
+}
+
+.card-title {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-value {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #111111;
+}
+
+.card-status {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.status-danger { background-color: #ffebee; color: var(--danger-red); }
+.status-high { background-color: #fff3e0; color: var(--warning-yellow); }
+.status-moderate { background-color: #e8f5e9; color: var(--success-green); }
+
+/* Severity Table */
+.section-block {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.section-block h2 {
+    font-size: 1.4rem;
+    color: #222222;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent-orange);
+    padding-left: 10px;
+}
+
+.severity-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.severity-table th, .severity-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.severity-table th {
+    background-color: #f8f8f8;
+    color: #555555;
+    font-weight: 600;
+}
+
+.badge {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.badge-normal { background: #e8f5e9; color: var(--success-green); }
+.badge-caution { background: #fffde7; color: #f57f17; }
+.badge-warning { background: #fff3e0; color: var(--warning-yellow); }
+.badge-danger { background: #ffebee; color: var(--danger-red); }
+
+/* Calculator */
+.calculator-block form {
+    margin-top: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    max-width: 300px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.btn-submit {
+    background: var(--accent-orange);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-submit:hover {
+    background: var(--primary-color);
+}
+
+.result-box {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff8f6;
+    border: 1px solid var(--accent-orange);
+    border-radius: 6px;
+}
+
+.hidden { display: none; }
+
+/* Do's and Don'ts */
+.dos-donts-grid {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    margin-top: 15px;
+}
+
+.dos-box, .donts-box {
+    display: table-cell;
+    width: 50%;
+    padding: 15px;
+    vertical-align: top;
+}
+
+.dos-box h3 { color: var(--success-green); margin-bottom: 10px; }
+.donts-box h3 { color: var(--danger-red); margin-bottom: 10px; }
+
+.dos-box ul, .donts-box ul {
+    padding-left: 20px;
+}
+
+.dos-box li, .donts-box li {
+    margin-bottom: 8px;
+}
+
+/* Emergency Contacts */
+.contacts-grid {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    margin-top: 15px;
+}
+
+.contact-card {
+    display: table-cell;
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+    padding: 15px;
+    text-align: center;
+    border-radius: 6px;
+}
+
+.phone-number {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 5px 0;
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a1a;
+    color: #aaaaaa;
+    text-align: center;
+    padding: 25px 0;
+    font-size: 0.85rem;
+    margin-top: 40px;
+    border-top: 3px solid var(--accent-orange);
+}

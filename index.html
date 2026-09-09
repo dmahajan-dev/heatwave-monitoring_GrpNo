@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heatwave Monitoring & Alert System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="icon">☀️</span>
+                <span class="brand-name">HeatwaveGuard</span>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#dashboard" class="active">Dashboard</a></li>
+                    <li><a href="#scale">Severity Scale</a></li>
+                    <li><a href="#calculator">Risk Assessment</a></li>
+                    <li><a href="#safety">Safety Tips</a></li>
+                    <li><a href="#emergency">Emergency</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Alert Banner -->
+    <div class="alert-banner warning">
+        <div class="container">
+            <span class="alert-badge">HIGH ALERT</span>
+            <span class="alert-text">Severe Heatwave Warning active for Metropolitan Region. Extreme heat advisory in effect from 11:00 AM to 4:00 PM.</span>
+        </div>
+    </div>
+
+    <main class="container">
+        <!-- Hero / Live Dashboard -->
+        <section id="dashboard" class="dashboard-section">
+            <div class="section-header">
+                <h2>Real-Time Meteorological Dashboard</h2>
+                <p id="live-time">Last updated: Loading time...</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card temp-card">
+                    <div class="card-title">Temperature</div>
+                    <div class="card-value" id="curr-temp">41.8°C</div>
+                    <div class="card-status status-danger">Extreme Heat</div>
+                </div>
+
+                <div class="card heat-index-card">
+                    <div class="card-title">Heat Index ("Feels Like")</div>
+                    <div class="card-value" id="feels-like">47.2°C</div>
+                    <div class="card-status status-danger">Heat Stroke Danger</div>
+                </div>
+
+                <div class="card humidity-card">
+                    <div class="card-title">Relative Humidity</div>
+                    <div class="card-value" id="humidity">48%</div>
+                    <div class="card-status status-moderate">Moderate Moisture</div>
+                </div>
+
+                <div class="card uv-card">
+                    <div class="card-title">UV Index</div>
+                    <div class="card-value" id="uv-index">10.5</div>
+                    <div class="card-status status-high">Very High Exposure</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Heatwave Severity Scale Table -->
+        <section id="scale" class="section-block">
+            <h2>Heatwave Severity Classification</h2>
+            <div class="table-responsive">
+                <table class="severity-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Temp Range (°C)</th>
+                            <th>Health Risk Level</th>
+                            <th>Recommended Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="cat-normal">
+                            <td><span class="badge badge-normal">Level 0: Normal</span></td>
+                            <td>&lt; 35°C</td>
+                            <td>Minimal Risk</td>
+                            <td>Standard hydration and daily routine.</td>
+                        </tr>
+                        <tr class="cat-caution">
+                            <td><span class="badge badge-caution">Level 1: Caution</span></td>
+                            <td>35.0°C - 38.9°C</td>
+                            <td>Fatigue possible with prolonged exposure</td>
+                            <td>Increase fluid intake; limit prolonged direct sun exposure.</td>
+                        </tr>
+                        <tr class="cat-warning">
+                            <td><span class="badge badge-warning">Level 2: Heat Advisory</span></td>
+                            <td>39.0°C - 42.9°C</td>
+                            <td>Heat cramps & exhaustion likely</td>
+                            <td>Avoid outdoor activities between 11 AM - 4 PM. Seek shade.</td>
+                        </tr>
+                        <tr class="cat-severe">
+                            <td><span class="badge badge-danger">Level 3: Severe Heatwave</span></td>
+                            <td>&ge; 43.0°C</td>
+                            <td>High risk of Heat Stroke / Sunstroke</td>
+                            <td>Emergency alert; remain indoors in cooled areas.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Interactive Heat Index Calculator -->
+        <section id="calculator" class="section-block calculator-block">
+            <h2>Interactive Heat Risk Calculator</h2>
+            <p>Enter ambient air temperature and relative humidity to assess immediate heat stroke danger.</p>
+            
+            <form id="risk-form" onsubmit="event.preventDefault(); calculateHeatIndex();">
+                <div class="form-group">
+                    <label for="temp-input">Air Temperature (°C):</label>
+                    <input type="number" id="temp-input" value="40" min="20" max="60" step="0.1" required>
+                </div>
+                <div class="form-group">
+                    <label for="rh-input">Relative Humidity (%):</label>
+                    <input type="number" id="rh-input" value="50" min="10" max="100" step="1" required>
+                </div>
+                <button type="submit" class="btn-submit">Calculate Heat Risk</button>
+            </form>
+
+            <div id="calc-result" class="result-box hidden">
+                <h3>Calculated Heat Index: <span id="res-hi">--</span>°C</h3>
+                <p id="res-desc">Result will appear here.</p>
+            </div>
+        </section>
+
+        <!-- Safety Precautions -->
+        <section id="safety" class="section-block">
+            <h2>Public Safety Guidelines</h2>
+            <div class="dos-donts-grid">
+                <div class="dos-box">
+                    <h3>✅ DO'S</h3>
+                    <ul>
+                        <li>Drink frequent water even if not feeling thirsty.</li>
+                        <li>Wear lightweight, light-colored, loose cotton clothing.</li>
+                        <li>Use sunglasses, wide-brim hats, or umbrellas outdoors.</li>
+                        <li>Use ORS, homemade drinks like lassi, torani, lemon water.</li>
+                        <li>Keep pets in shaded areas with plenty of fresh water.</li>
+                    </ul>
+                </div>
+                <div class="donts-box">
+                    <h3>❌ DON'TS</h3>
+                    <ul>
+                        <li>Do not venture out barefoot or in direct sunlight during noon hours.</li>
+                        <li>Do not leave children or pets inside parked vehicles.</li>
+                        <li>Avoid high-protein food and heavy physical strenuous exertion.</li>
+                        <li>Avoid alcohol, tea, coffee, and carbonated soft drinks (dehydrating).</li>
+                        <li>Never ignore symptoms of dizziness or severe headache.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Helpline Contacts -->
+        <section id="emergency" class="section-block emergency-block">
+            <h2>Emergency Support & Helplines</h2>
+            <div class="contacts-grid">
+                <div class="contact-card">
+                    <h4>National Emergency Number</h4>
+                    <p class="phone-number">112</p>
+                    <p class="contact-desc">Toll-free 24/7 disaster & medical support.</p>
+                </div>
+                <div class="contact-card">
+                    <h4>Ambulance Service</h4>
+                    <p class="phone-number">108 / 102</p>
+                    <p class="contact-desc">Immediate medical transfer for heat stroke emergency.</p>
+                </div>
+                <div class="contact-card">
+                    <h4>Disaster Management Control Room</h4>
+                    <p class="phone-number">1077</p>
+                    <p class="contact-desc">District heatwave relief & water tank dispatch.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Heatwave Monitoring System | Web Development Laboratory (Experiment Case Study)</p>
+            <p>Department of Computer Engineering, K. J. Somaiya School of Engineering</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
